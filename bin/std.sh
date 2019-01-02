@@ -5,6 +5,11 @@ then
     exit 0
 fi
 
+# When DEBUG trap is used by used this scripts can fail
+# of even turn into a forking bomb. Not shure about this fix, but it seems to work.
+echo 'trap - DEBUG ;'
+echo 'export PROMPT_COMMAND="" ;'
+
 guess_stdsh_path ()
 {
     local rpath="$0"
