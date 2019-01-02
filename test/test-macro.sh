@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-eval `lib.sh`
+eval `std.sh`
 use macro
 
 test-func()

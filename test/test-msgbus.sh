@@ -1,6 +1,6 @@
 #!/bin/bash
 
-eval `lib.sh`
+eval `std.sh`
 
 use msgbus
 

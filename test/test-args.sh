@@ -1,4 +1,4 @@
-#!/usr/bin/env lib.sh
+#!/usr/bin/env std.sh
 
 test-empty()
 {
