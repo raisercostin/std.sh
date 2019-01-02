@@ -17,15 +17,15 @@ throw ()
 
 error ()
 {
-    @args msg
-    log err "$msg"
+    @args msg...
+    log err "${msg[@]}"
     throw
 }
 
 warn ()
 {
-    @args msg
-    log warn "$msg"
+    @args msg...
+    log warn "${msg[@]}"
 }
 
 require ()
