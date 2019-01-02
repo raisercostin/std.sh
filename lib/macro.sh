@@ -1,8 +1,8 @@
 # @macro [ expr ... ] == eval "$(expr)"
 use args
 
-alias @macro='_stdsh_MACRO_COMMAND="${BASH_COMMAND#*#\'\''}" eval '\''eval "$(eval "$_stdsh_MACRO_COMMAND")" #'\'
-alias @macro-print='_stdsh_MACRO_COMMAND="${BASH_COMMAND#*#\'\''}" eval '\''echo "$(eval "$_stdsh_MACRO_COMMAND")" #'\'
+alias       @macro=$'eval "${BASH_COMMAND/*\\#/eval \\\"\$( } )\\\" " \#'
+alias @macro-print=$'eval "${BASH_COMMAND/*\\#/echo \\\"\$( } )\\\" " \#'
 
 macro-command ()
 {
