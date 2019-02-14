@@ -5,7 +5,7 @@ module ()
     @args library
 }
 
-use ()
+use-single ()
 {
     @args library
     if [ "${#STDSH_LIBRARIES[@]}" -eq 0 ]
@@ -24,3 +24,10 @@ use ()
     fi
 }
 
+use ()
+{
+    @args libs...
+    for lib in "${libs[@]}"; do
+        use-single "$lib"
+    done
+}
