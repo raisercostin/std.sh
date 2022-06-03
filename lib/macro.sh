@@ -17,29 +17,25 @@ use args
 # Variable exists, but doesn't contain command
 # Pros: macro-command works, still simple enough
 # Con: none known yet.
-alias       @macro=$'_stdsh_MACRO_COMMAND="yes" eval "eval \\"\$(${BASH_COMMAND#* \\\# })\\"" \#'
+alias @macro=$'_stdsh_MACRO_COMMAND="yes" eval "eval \\"\$(${BASH_COMMAND#* \\\# })\\"" \#'
 alias @macro-print=$'_stdsh_MACRO_COMMAND="yes" eval "echo \\"\$(${BASH_COMMAND#* \\\# })\\"" \#'
 
-macro-command ()
-{
-   @args
-   if [ -n "$_stdsh_MACRO_FUNCTION" ]
-   then
-       echo "${_stdsh_MACRO_COMMAND:$[ ${#_stdsh_MACRO_FUNCTION} +1 ]}"
-   else
-       echo "$_stdsh_MACRO_COMMAND"
-   fi
+macro-command() {
+  @args
+  if [ -n "$_stdsh_MACRO_FUNCTION" ]; then
+    echo "${_stdsh_MACRO_COMMAND:$((${#_stdsh_MACRO_FUNCTION} + 1))}"
+  else
+    echo "$_stdsh_MACRO_COMMAND"
+  fi
 }
 
-macroify()
-{
-    @args funcname
-    funcname="$(printf '%q' "$funcname")"
-    alias "@$funcname=_stdsh_MACRO_FUNCTION=$funcname @macro $funcname"
+macroify() {
+  @args funcname
+  funcname="$(printf '%q' "$funcname")"
+  alias "@$funcname=_stdsh_MACRO_FUNCTION=$funcname @macro $funcname"
 }
 
-macro? ()
-{
-    @args
-    [[ -n "$_stdsh_MACRO_COMMAND" ]]
+macro?() {
+  @args
+  [[ -n "$_stdsh_MACRO_COMMAND" ]]
 }
