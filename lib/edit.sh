@@ -1,4 +1,5 @@
 #!/bin/false
+# shellcheck shell=bash
 
 DEFAULT_EDITOR=(vi)
 

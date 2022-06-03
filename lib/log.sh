@@ -1,4 +1,5 @@
 #!/bin/false
+# shellcheck shell=bash
 
 _stdsh_LOG_LEVEL=4
 

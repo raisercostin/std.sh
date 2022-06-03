@@ -1,4 +1,8 @@
+#!/bin/false
+# shellcheck shell=bash
+
 # @macro [ expr ... ] == eval "$(expr)"
+
 use args
 
 # The var-substitute solution (without additional variable).

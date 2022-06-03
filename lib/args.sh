@@ -1,4 +1,6 @@
 #!/bin/false
+# shellcheck shell=bash
+
 use macro
 use error
 

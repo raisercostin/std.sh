@@ -1,4 +1,5 @@
 #!/bin/false
+# shellcheck shell=bash
 
 set -o functrace
 set -o errtrace
